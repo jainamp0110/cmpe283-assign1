@@ -21,9 +21,9 @@
    4) Procbased Controls (IA32_VMX_PROCBASED_CTLS:0x482)
    5) Secondary Procbased Controls (IA32_VMX_PROCBASED_CTLS2: 0x48B)
    6) Tertiary Procbased Controls (IA32_VMX_PROCBASED_CTLS3: 0x492)
-4) After referring to the source code provided `cmpe283-1.c` and `MakeFile`, I created five more structs and constants(defining their HEX) representing other MSRs mentioned above modified the `detect_vmx_features` to `report_capabilities` for those MSRs.
-5) NOTE: For MSRs, Secondary Procbased and Tertiary Procbased, make sure to check the ability to set the `Active Secondary Controls(bit-31)` and `Active Tertiary Controls(bit-17)` in the Primary Procbased controls before performing `rdmsr` and `report_capability`. 
-6) Make sure the `MODULE_LICENSE("GPL)` is added in the code. 
+4) After referring to the source code provided `cmpe283-1.c` and `MakeFile`, I created five more structs and constants(defining their HEX) representing other MSRs mentioned above and modified the `detect_vmx_features` to `report_capabilities` for those MSRs.
+5) **NOTE:** For MSRs, Secondary Procbased and Tertiary Procbased, make sure to check the ability to set the `Active Secondary Controls(bit-31)` and `Active Tertiary Controls(bit-17)` in the Primary Procbased controls before performing `rdmsr` and `report_capability`. 
+6) Make sure the `MODULE_LICENSE("GPL")` is added in the code. 
 7) Created a SSH key in my local machine using `ssh-keygen -t rsa -f fileNameHere -C gcpUserNameHere -b 2048` and added the public key(.pub) in the VM instance created. 
 8) Using `scp` command, transferred the zip file to the vm. eg. `scp -i ./fileNameOfKeyCreated /path/to/zip/file/here usernameOfVM@externalIPofVM:destination/path/in/vm`.
 9) Unzipped the file and in the directory performed make operation.
